@@ -1,71 +1,456 @@
 <!doctype html>
 <html lang="cs">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Responzivní fotogalerie</title>
-    <link rel="stylesheet" href="./src/output.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/css/lightbox.min.css" />
-  </head>
-  <body class="bg-slate-100 text-slate-900">
-    <main class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-      <h1 class="mb-2 text-3xl font-bold tracking-tight">Moje fotogalerie</h1>
-      <p class="mb-8 text-slate-600">8 náhodných fotografií přes Picsum Photos</p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moje fotogalerie</title>
 
-      <section class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <figure class="group overflow-hidden rounded-2xl bg-white shadow-sm">
-          <a href="https://picsum.photos/seed/1/1600/1200" data-lightbox="tailgallery" data-title="Náhodná fotka 1" class="block w-full cursor-zoom-in">
-            <img src="https://picsum.photos/seed/1/800/600" alt="Náhodná fotka 1" class="h-64 w-full object-cover transition duration-300 group-hover:scale-105" loading="lazy" />
-          </a>
-        </figure>
-        <figure class="group overflow-hidden rounded-2xl bg-white shadow-sm">
-          <a href="https://picsum.photos/seed/2/1600/1200" data-lightbox="tailgallery" data-title="Náhodná fotka 2" class="block w-full cursor-zoom-in">
-            <img src="https://picsum.photos/seed/2/800/600" alt="Náhodná fotka 2" class="h-64 w-full object-cover transition duration-300 group-hover:scale-105" loading="lazy" />
-          </a>
-        </figure>
-        <figure class="group overflow-hidden rounded-2xl bg-white shadow-sm">
-          <a href="https://picsum.photos/seed/3/1600/1200" data-lightbox="tailgallery" data-title="Náhodná fotka 3" class="block w-full cursor-zoom-in">
-            <img src="https://picsum.photos/seed/3/800/600" alt="Náhodná fotka 3" class="h-64 w-full object-cover transition duration-300 group-hover:scale-105" loading="lazy" />
-          </a>
-        </figure>
-        <figure class="group overflow-hidden rounded-2xl bg-white shadow-sm">
-          <a href="https://picsum.photos/seed/4/1600/1200" data-lightbox="tailgallery" data-title="Náhodná fotka 4" class="block w-full cursor-zoom-in">
-            <img src="https://picsum.photos/seed/4/800/600" alt="Náhodná fotka 4" class="h-64 w-full object-cover transition duration-300 group-hover:scale-105" loading="lazy" />
-          </a>
-        </figure>
-        <figure class="group overflow-hidden rounded-2xl bg-white shadow-sm">
-          <a href="https://picsum.photos/seed/5/1600/1200" data-lightbox="tailgallery" data-title="Náhodná fotka 5" class="block w-full cursor-zoom-in">
-            <img src="https://picsum.photos/seed/5/800/600" alt="Náhodná fotka 5" class="h-64 w-full object-cover transition duration-300 group-hover:scale-105" loading="lazy" />
-          </a>
-        </figure>
-        <figure class="group overflow-hidden rounded-2xl bg-white shadow-sm">
-          <a href="https://picsum.photos/seed/6/1600/1200" data-lightbox="tailgallery" data-title="Náhodná fotka 6" class="block w-full cursor-zoom-in">
-            <img src="https://picsum.photos/seed/6/800/600" alt="Náhodná fotka 6" class="h-64 w-full object-cover transition duration-300 group-hover:scale-105" loading="lazy" />
-          </a>
-        </figure>
-        <figure class="group overflow-hidden rounded-2xl bg-white shadow-sm">
-          <a href="https://picsum.photos/seed/7/1600/1200" data-lightbox="tailgallery" data-title="Náhodná fotka 7" class="block w-full cursor-zoom-in">
-            <img src="https://picsum.photos/seed/7/800/600" alt="Náhodná fotka 7" class="h-64 w-full object-cover transition duration-300 group-hover:scale-105" loading="lazy" />
-          </a>
-        </figure>
-        <figure class="group overflow-hidden rounded-2xl bg-white shadow-sm">
-          <a href="https://picsum.photos/seed/8/1600/1200" data-lightbox="tailgallery" data-title="Náhodná fotka 8" class="block w-full cursor-zoom-in">
-            <img src="https://picsum.photos/seed/8/800/600" alt="Náhodná fotka 8" class="h-64 w-full object-cover transition duration-300 group-hover:scale-105" loading="lazy" />
-          </a>
-        </figure>
-      </section>
-    </main>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/js/lightbox.min.js"></script>
-    <script>
-      lightbox.option({
-        albumLabel: "Obrázek %1 z %2",
-        wrapAround: true,
-        disableScrolling: true,
-        fadeDuration: 200,
-        imageFadeDuration: 200,
-        resizeDuration: 200,
-      });
-    </script>
-  </body>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Lightbox -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/css/lightbox.min.css" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --crimson: rgb(125, 0, 0);
+      --crimson-dark: rgb(90, 0, 0);
+      --cream: #fdf6ec;
+      --ink: #1a1410;
+      --muted: #7a6f65;
+      --border: #e8ddd0;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Noise efekt */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      opacity: 0.4;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: 1280px;
+      margin: auto;
+      padding: 60px 24px 80px;
+    }
+
+    /* HEADER */
+    header {
+      margin-bottom: 60px;
+      border-left: 5px solid var(--crimson);
+      padding-left: 24px;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--crimson);
+      margin-bottom: 10px;
+      font-weight: 500;
+      opacity: 0;
+      animation: fadeUp .6s ease forwards;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4.2rem);
+      line-height: 1.05;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      opacity: 0;
+      animation: fadeUp .6s ease forwards .15s;
+    }
+
+    h1 span {
+      color: var(--crimson);
+    }
+
+    header p:last-child {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 300;
+      opacity: 0;
+      animation: fadeUp .6s ease forwards .3s;
+    }
+
+    /* GRID */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    @media (min-width: 700px) {
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+    }
+
+    /* KARTA */
+    figure {
+      background: white;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,.08);
+      opacity: 0;
+      animation: fadeUp .6s ease forwards;
+      transition: transform .3s ease;
+    }
+
+    figure:hover {
+      transform: translateY(-4px);
+    }
+
+    figure:nth-child(1) { animation-delay: .35s; }
+    figure:nth-child(2) { animation-delay: .42s; }
+    figure:nth-child(3) { animation-delay: .49s; }
+    figure:nth-child(4) { animation-delay: .56s; }
+    figure:nth-child(5) { animation-delay: .63s; }
+    figure:nth-child(6) { animation-delay: .70s; }
+    figure:nth-child(7) { animation-delay: .77s; }
+    figure:nth-child(8) { animation-delay: .84s; }
+
+    figure a {
+      position: relative;
+      display: block;
+      overflow: hidden;
+    }
+
+    figure img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+      transition: transform .5s ease;
+    }
+
+    figure:hover img {
+      transform: scale(1.08);
+    }
+
+    /* Overlay */
+    figure a::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        transparent 45%,
+        rgba(125,0,0,.55)
+      );
+      opacity: 0;
+      transition: opacity .3s ease;
+    }
+
+    figure:hover a::after {
+      opacity: 1;
+    }
+
+    /* Ikona */
+    figure a::before {
+      content: '⊕';
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2.5rem;
+      color: white;
+      opacity: 0;
+      transform: scale(.7);
+      transition: .3s ease;
+    }
+
+    figure:hover a::before {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Popisek */
+    figcaption {
+      padding: 12px 14px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--muted);
+      font-weight: 500;
+      transition: color .25s ease;
+    }
+
+    figure:hover figcaption {
+      color: var(--crimson);
+    }
+
+    /* FOOTER */
+    .gallery-footer {
+      margin-top: 60px;
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .gallery-footer span {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--muted);
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--crimson);
+      display: inline-block;
+    }
+
+    /* ANIMACE */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* LIGHTBOX */
+    .lb-data .lb-caption {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+    }
+
+    .lb-nav a.lb-prev,
+    .lb-nav a.lb-next {
+      opacity: .7;
+    }
+
+    .lb-nav a.lb-prev:hover,
+    .lb-nav a.lb-next:hover {
+      opacity: 1;
+    }
+
+    /* DARK MODE */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --cream: #25201b;
+        --ink: #f4efe9;
+        --muted: #b0a397;
+        --border: #3d352d;
+      }
+
+      figure {
+        background: #2e2823;
+      }
+
+      figcaption {
+        background: #2e2823;
+      }
+    }
+
+    /* REDUCED MOTION */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+
+    /* PRINT */
+    @media print {
+      body::before {
+        display: none;
+      }
+
+      .gallery-footer {
+        display: none;
+      }
+
+      figure a::before,
+      figure a::after {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+
+    <!-- HEADER -->
+    <header>
+      <p class="eyebrow">Fotogalerie — 2026</p>
+
+      <h1>
+        Moje <span>foto</span>galerie
+      </h1>
+
+      <p>8 fotografií ze školního roku</p>
+    </header>
+
+    <!-- GALERIE -->
+    <section class="gallery-grid">
+
+      <figure>
+        <a href="skola-foto/skola01.jpg"
+           data-lightbox="tailgallery"
+           data-title="Fotka 1">
+          <img src="skola-foto/nahledy-skola01.jpg"
+               alt="Fotka 1"
+               loading="lazy">
+        </a>
+        <figcaption>Fotka 01</figcaption>
+      </figure>
+
+      <figure>
+        <a href="skola-foto/skola02.jpg"
+           data-lightbox="tailgallery"
+           data-title="Fotka 2">
+          <img src="skola-foto/nahledy-skola02.jpg"
+               alt="Fotka 2"
+               loading="lazy">
+        </a>
+        <figcaption>Fotka 02</figcaption>
+      </figure>
+
+      <figure>
+        <a href="skola-foto/skola03.jpg"
+           data-lightbox="tailgallery"
+           data-title="Fotka 3">
+          <img src="skola-foto/nahledy-skola03.jpg"
+               alt="Fotka 3"
+               loading="lazy">
+        </a>
+        <figcaption>Fotka 03</figcaption>
+      </figure>
+
+      <figure>
+        <a href="skola-foto/skola04.jpg"
+           data-lightbox="tailgallery"
+           data-title="Fotka 4">
+          <img src="skola-foto/nahledy-skola04.jpg"
+               alt="Fotka 4"
+               loading="lazy">
+        </a>
+        <figcaption>Fotka 04</figcaption>
+      </figure>
+
+      <figure>
+        <a href="skola-foto/skola05.jpg"
+           data-lightbox="tailgallery"
+           data-title="Fotka 5">
+          <img src="skola-foto/nahledy-skola05.jpg"
+               alt="Fotka 5"
+               loading="lazy">
+        </a>
+        <figcaption>Fotka 05</figcaption>
+      </figure>
+
+      <figure>
+        <a href="skola-foto/skola06.jpg"
+           data-lightbox="tailgallery"
+           data-title="Fotka 6">
+          <img src="skola-foto/nahledy-skola06.jpg"
+               alt="Fotka 6"
+               loading="lazy">
+        </a>
+        <figcaption>Fotka 06</figcaption>
+      </figure>
+
+      <figure>
+        <a href="skola-foto/skola07.jpg"
+           data-lightbox="tailgallery"
+           data-title="Fotka 7">
+          <img src="skola-foto/nahledy-skola07.jpg"
+               alt="Fotka 7"
+               loading="lazy">
+        </a>
+        <figcaption>Fotka 07</figcaption>
+      </figure>
+
+      <figure>
+        <a href="skola-foto/skola08.jpg"
+           data-lightbox="tailgallery"
+           data-title="Fotka 8">
+          <img src="skola-foto/nahledy-skola08.jpg"
+               alt="Fotka 8"
+               loading="lazy">
+        </a>
+        <figcaption>Fotka 08</figcaption>
+      </figure>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="gallery-footer">
+      <span class="dot"></span>
+      <span>8 fotografií</span>
+
+      <span class="dot"></span>
+      <span>Kliknutím otevřete náhled</span>
+    </footer>
+
+  </main>
+
+  <!-- jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <!-- Lightbox -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/js/lightbox.min.js"></script>
+
+  <script>
+    lightbox.option({
+      albumLabel: "Obrázek %1 z %2",
+      wrapAround: true,
+      disableScrolling: false,
+      fadeDuration: 200,
+      imageFadeDuration: 200,
+      resizeDuration: 200,
+      fitImagesInViewport: true,
+      maxWidth: "90vw",
+      maxHeight: "90vh"
+    });
+  </script>
+
+</body>
 </html>
